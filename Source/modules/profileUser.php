@@ -16,7 +16,7 @@ $db = new DataSource();
         ?>
                 <div class="col">
                     <div class="card product-item">
-                        <img class="card-img-top" src="images/<?php echo $whish_array[$key]["HinhURL"] ?>" alt="<?php echo $product_array[$key]["MoTa"]; ?>">
+                        <img class="card-img-top" src="images/<?php echo $whish_array[$key]["HinhURL"] ?>.jpg" alt="<?php echo $product_array[$key]["MoTa"]; ?>">
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $whish_array[$key]["TenSanPham"]; ?></h4>
                             <p class="card-text"><b>Giá: <span class="text-danger"><?php echo $whish_array[$key]["GiaSanPham"]; ?>đ</span></b></p>
