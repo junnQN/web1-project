@@ -1,8 +1,69 @@
 <?php
 require_once "libData/DataSource.php";
 $db = new DataSource();
+
+$tenHienThi = $_SESSION["TenHienThi"];
+$diaChi = $_SESSION["DiaChi"];
+$dienThoai = $_SESSION["DienThoai"];
+$email = $_SESSION["Email"];
+$id_user =  $_SESSION["MaTaiKhoan"];
+
 ?>
 <div class="container">
+    <div class="title">
+        <a href="" class="h2">Thông tin cá nhân</a>
+    </div>
+    <div>
+        <h5>Tên người dùng: <?php echo $_SESSION["TenHienThi"]; ?></h5>
+        <h5>Địa chỉ: <?php echo $_SESSION["DiaChi"]; ?></h5>
+        <h5>Điện thoại: <?php echo $_SESSION["DienThoai"]; ?></h5>
+        <h5>Email: <?php echo $_SESSION["Email"]; ?></h5>
+    </div>
+    <div class="title">
+        <a href="#" class="h2">Thay đổi thông tin cá nhân</a>
+        <form action="modules/xlUpdate.php" method="POST" name="frmLogin" id="formAcount" onsubmit="return KiemTra()">
+            <div>
+                <span class="err" id="errPS"></span>
+            </div>
+            <div>
+                <input type="text" value="<?php echo $tenHienThi; ?>" id="name" name="name" required>
+            </div>
+            <div>
+                <input type="text" value="<?php echo $diaChi; ?>" id="add" name="add" required>
+            </div>
+            <div>
+                <input type="text" value="<?php echo $dienThoai; ?>" id="tel" name="tel" required pattern="^[0-9_]{9,12}$" title="Số điện thoại chỉ gồm số và có độ dài hơn 9 số">
+            </div>
+            <div>
+                <input type="email" value="<?php echo $email; ?>" name="mail" id="mail" disabled>
+            </div>
+            <div>
+                <input type="password" id="ps" name="ps" placeholder="Nhập lại mật khẩu" pattern="^[A-Za-z0-9_]{5,24}$" title="Mật khẩu không có khoảng trắng và các ký tự đặc biệt, phải có độ dài từ 5-24">
+            </div>
+            <div>
+                <input type="password" id="rps" name="rps" required placeholder="Nhập lại mật khẩu">
+            </div>
+            <div class="user-foot text-center">
+                <button type="submit" class="btn-pink" id="btnUpdate">CẬP NHẬT LẠI THÔNG TIN TÀI KHOẢN</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function KiemTra() {
+            var co = true;
+            var control = document.getElementById('ps');
+            control1 = document.getElementById('rps');
+            err = document.getElementById('errPS');
+            if (control.value != control1.value) {
+                co = false;
+                err.innerHTML = "(*) Nhập lại mật khẩu không trùng với mật khẩu";
+                control1.focus();
+            } else {
+                err.innnerHTML = "";
+            }
+            return co;
+        }
+    </script>
     <div class="title">
         <a href="#" class="h2">Sản phẩm đã yêu thích</a>
     </div>
