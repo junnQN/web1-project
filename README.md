@@ -5,7 +5,5 @@
 
 * 1760340 - Phạm Đình Khôi
 
-* 1760241 - Lưu Thiên Vĩ
-
 * 1760394 - Nguyễn Hồng Quân
 
