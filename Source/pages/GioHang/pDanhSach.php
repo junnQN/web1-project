@@ -32,7 +32,7 @@
 
                             <form name="frmGioHang" action="pages/GioHang/xlCapNhatGioHang.php" method="post">
                                 <tr>
-                                    <td><img src="images/<?php echo $row["HinhURL"]; ?>" width="50"></td>
+                                    <td><img src="images/<?php echo $row["HinhURL"]; ?>.jpg" width="50"></td>
                                     <td>
                                         <?php echo $row["TenSanPham"]; ?>
                                     </td>
