@@ -33,13 +33,12 @@ if (isset($_POST["mail"]) && isset($_POST["passNew"]) && isset($_POST["rePassNew
             DataProvider::ChangeURL("../index.php?a=6&sub=1");
         } else {
 
-
-            $sql = "UPDATE taikhoan set MatKhau = '$passHashUser' where TenDangNhap = '$username' ";
+            $sql = "UPDATE taikhoan set MatKhau = '$passHashUser', code = '$code' where TenDangNhap = '$username' ";
             DataProvider::ExecuteQuery($sql);
 
             sendEmail($email, 'Reset mật khẩu', 'Vui lòng click vào link <a href="http:/localhost:8080/web1-project/Source/middleware/activeCode.php?TenDangNhap=' . $username . '&code=' . $code . '">Reset mật khẩu</a>');
 
-            $_SESSION['resetPassWork'] = 'Vui lòng reset mật khẩu thông qua email: ' . $passHashUser . ' vừa nhập.';
+            $_SESSION['resetPassWork'] = 'Vui lòng reset mật khẩu thông qua email: ' . $email . ' vừa nhập.';
             DataProvider::ChangeURL("../index.php?a=6&sub=1");
         }
     }
