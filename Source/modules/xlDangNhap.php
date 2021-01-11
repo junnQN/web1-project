@@ -11,11 +11,11 @@ if (isset($_POST["txtUS"]) && isset($_POST["txtPS"])) {
 
     if ($row == null) {
         $_SESSION["error"] = 'Tên tài khoản không khớp';
-        header('Location: http://localhost:8080/LTW1_DoAn-master/Source/index.php?a=6&sub=1');
+        DataProvider::ChangeURL("../index.php?a=6&sub=1");
     } else {
         if (password_verify($ps, $row['MatKhau']) != true) {
             $_SESSION["error"] = 'Mật khẩu không khớp';
-            header('Location: http://localhost:8080/web1-project/Source/index.php?a=6&sub=1');
+            DataProvider::ChangeURL("../index.php?a=6&sub=1");
         } else {
             $_SESSION["MaTaiKhoan"] = $row["MaTaiKhoan"];
             $_SESSION["MaLoaiTaiKhoan"] = $row["MaLoaiTaiKhoan"];

@@ -20,7 +20,7 @@ if (isset($_POST["us"])) {
 
     if ($user != null) {
         $_SESSION["error"] = 'tai khoan da ton tai trong he thong';
-        header('Location: http://localhost:8080/web1-project/Source/index.php?a=6&sub=2');
+        DataProvider::ChangeURL("../index.php?a=6&sub=2");
     } else {
         $code = strtoupper(bin2hex(random_bytes(4)));
         $passHash = password_hash($ps, PASSWORD_DEFAULT);
@@ -33,8 +33,8 @@ if (isset($_POST["us"])) {
         sendEmail($mail, 'Kích hoạt tài khoản', 'Vui lòng click vào link <a href="http:/localhost:8080/LTW1_DoAn-master/Source/middleware/activeCode.php?TenDangNhap=' . $us . '&code=' . $code . '">Kích hoạt tài khoản</a>');
 
         $_SESSION['activeCode'] = 'Vui lòng xác nhận tài khoản thông qua email: ' . $mail . ' vừa đăng kí';
-        header('Location: http://localhost:8080/web1-project/Source/index.php?a=6&sub=1');
-        exit();
+        
+        DataProvider::ChangeURL("../index.php?a=6&sub=1");
         ob_flush();
     }
 }
