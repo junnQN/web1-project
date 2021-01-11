@@ -63,7 +63,7 @@
 			<?php
 			include './pages/connect_db.php';
 			$item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 8;
-			$current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
+			$current_page = !empty($_GET['page']) ? $_GET['page'] : 2;
 			$offset = ($current_page - 1) * $item_per_page;
 			$query = 'SELECT * FROM sanpham ORDER BY MaSanPham ASC LIMIT ' . $item_per_page . ' OFFSET ' . $offset;
 			$product_array = $db_handle->select($query);

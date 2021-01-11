@@ -3,7 +3,10 @@
 //index.php
 include "lib/DataProvider.php";
 include('config.php');
+$db = new DataProvider();
 
+require_once "libData/DataSource.php";
+$db_handle = new DataSource();
 $facebook_output = '';
 
 $facebook_helper = $facebook->getRedirectLoginHelper();
@@ -88,7 +91,7 @@ if (isset($_GET['code'])) {
                 $_SESSION["DienThoai"] = '';
                 $_SESSION["Email"] = $_SESSION["user_email_address"];
                 $_SESSION["DiaChi"] = '';
-                
+
                 // thêm vào cơ sở dữ liệu
                 $id =  $_SESSION["MaTaiKhoan"];
                 $name = $_SESSION["TenHienThi"];
@@ -96,13 +99,15 @@ if (isset($_GET['code'])) {
                 $phone = $_SESSION["DienThoai"];
                 $add = $_SESSION["DiaChi"];
                 $mail = $_SESSION["Email"];
-
-
-                $sql = "INSERT INTO taikhoan(MaTaiKhoan, TenHienThi, DiaChi, DienThoai, Email, MaLoaiTaiKhoan)
+                $sqlID = "SELECT * from TaiKhoan where TenHienThi = '$name'";
+                $result = $db_handle->select($sqlID);
+                if ($result == null) {
+                    $sql = "INSERT INTO taikhoan(MaTaiKhoan, TenHienThi, DiaChi, DienThoai, Email, MaLoaiTaiKhoan)
                     VALUES ('$id', '$name', '$add', '$phone', '$mail', '$loai')";
-
-                DataProvider::ExecuteQuery($sql);
-                echo '<h3><a href="index.php">Index</h3></div>';
+                    DataProvider::ExecuteQuery($sql);
+                    DataProvider::ChangeURL("../Source/index.php");
+                }
+                DataProvider::ChangeURL("../Source/index.php");
             }
             ?>
         </div>
