@@ -18,6 +18,10 @@ if ($user) {
             DataProvider::ExecuteQuery($sql);
 
             $_SESSION["MaTaiKhoan"] = $user["MaTaiKhoan"];
+            $_SESSION["TenDangNhap"] = $user["TenDangNhap"];
+            $_SESSION["DienThoai"] = $user["DienThoai"];
+            $_SESSION["DiaChi"] = $user["DiaChi"];
+            $_SESSION["Email"] = $user["Email"];
             $_SESSION["MaLoaiTaiKhoan"] = 1;
             $_SESSION["TenHienThi"] = $user["TenHienThi"];
             if ($user["MaLoaiTaiKhoan"] == 2) {

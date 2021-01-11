@@ -30,10 +30,9 @@ if (isset($_POST["us"])) {
         DataProvider::ExecuteQuery($sql);
 
 
-        sendEmail($mail, 'Kích hoạt tài khoản', 'Vui lòng click vào link <a href="http:/localhost:8080/LTW1_DoAn-master/Source/middleware/activeCode.php?TenDangNhap=' . $us . '&code=' . $code . '">Kích hoạt tài khoản</a>');
+        sendEmail($mail, 'Kích hoạt tài khoản', 'Vui lòng click vào link <a href="http:/localhost:8080/web1-project/Source/middleware/activeCode.php?TenDangNhap=' . $us . '&code=' . $code . '">Kích hoạt tài khoản</a>');
 
         $_SESSION['activeCode'] = 'Vui lòng xác nhận tài khoản thông qua email: ' . $mail . ' vừa đăng kí';
-        
         DataProvider::ChangeURL("../index.php?a=6&sub=1");
         ob_flush();
     }

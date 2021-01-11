@@ -20,7 +20,7 @@ if (!empty($whish_array)) {
 
 <div class="container">
 	<div class="title">
-		<a href="#" class="h2">Sản phẩm xem nhiều</a>
+		<a href="#" class="h2">Sản phẩm được yêu thích nhất</a>
 	</div>
 	<div class="row">
 		<?php
