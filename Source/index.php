@@ -2,6 +2,8 @@
 session_start();
 include "lib/DataProvider.php";
 $_SESSION["path"] = $_SERVER["REQUEST_URI"];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

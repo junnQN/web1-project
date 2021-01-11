@@ -3,6 +3,7 @@
         <a href="index.php?a=6&sub=1" class="active float-left">ĐĂNG NHẬP</a>
         <a href="index.php?a=6&sub=2" class="float-left">ĐĂNG KÝ</a>
         <a href="index.php?a=6&sub=3" class="float-left">QUÊN MẬT KHẨU</a>
+        <a href="index.php?a=6&sub=4" class="float-left">LOGIN WITH FACEBOOK</a>
 
     </div>
     <?php

@@ -5,7 +5,3 @@
 require_once __DIR__ . '/composer/autoload_real.php';
 
 return ComposerAutoloaderInit8bf67124e269128441a34eb685594249::getLoader();
-
-function printABC(){
-    echo '123';
-}

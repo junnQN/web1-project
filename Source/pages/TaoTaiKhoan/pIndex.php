@@ -17,6 +17,9 @@
         case 3:
             include "pages/TaoTaiKhoan/pReset.php";
         break;
+        case 4: 
+            include "pages/TaoTaiKhoan/pFacebook.php";
+            break;
         default:
             DataProvider::ChangeURL("index.php?a=404");
         break;
